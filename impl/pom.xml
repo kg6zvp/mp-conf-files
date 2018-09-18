@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>es.eisig</groupId>
+		<artifactId>mp-conf-files-root</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<artifactId>mp-conf-files</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>MP Config Files</name>
+	<description>Utilities for handling Strings and Files with MP-Config</description>
+	<url>https://github.com/kg6zvp/mp-conf-files</url>
+
+	<licenses>
+		<license>
+			<name>AL2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Sam McCollum</name>
+			<email>kg6zvp@gmail.com</email>
+			<organization>kg6zvp</organization>
+			<organizationUrl>https://kg6zvp.github.io/</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/kg6zvp/mp-conf-files.git</connection>
+		<developerConnection>scm:git:https://gitlab.mccollum.enterprises/kg6zvp/mp-conf-files.git</developerConnection>
+		<url>https://github.com/kg6zvp/mp-conf-files/</url>
+	</scm>
+	
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav</artifactId>
+				<version>1.0-beta-2</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+</project>

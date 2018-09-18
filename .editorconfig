@@ -1,0 +1,3 @@
+# Set indentation to Tabs for all file types
+[*]
+indent_style = tab
