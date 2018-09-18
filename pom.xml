@@ -23,5 +23,6 @@
 
 	<modules>
 		<module>impl</module>
+		<module>test</module>
 	</modules>
 </project>
