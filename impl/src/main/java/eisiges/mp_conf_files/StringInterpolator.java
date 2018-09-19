@@ -1,4 +1,4 @@
-package es.eisig.mp_conf_files;
+package eisiges.mp_conf_files;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

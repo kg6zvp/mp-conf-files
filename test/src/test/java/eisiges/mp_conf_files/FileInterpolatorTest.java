@@ -1,4 +1,4 @@
-package es.eisig.mp_conf_files;
+package eisiges.mp_conf_files;
 
 import org.junit.Test;
 import org.junit.Before;
@@ -23,6 +23,7 @@ import static org.junit.Assert.*;
  * @author kg6zvp
  */
 public class FileInterpolatorTest {
+
 	File testFile;
 
 	@Before
@@ -52,7 +53,7 @@ public class FileInterpolatorTest {
 
 		List<String> lines = new LinkedList<>();
 
-		try(InputStream inputStream = conn.getInputStream()) {
+		try (InputStream inputStream = conn.getInputStream()) {
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 			String currentLine = null;
 			while( (currentLine = bufferedReader.readLine()) != null) {
@@ -64,7 +65,6 @@ public class FileInterpolatorTest {
 		assertEquals("random line", lines.get(0));
 		assertEquals("I want some vanilla ice cream with chocolate chips", lines.get(1));
 	}
-
 
 	@Test
 	public void testFileInterpolation() throws IOException {

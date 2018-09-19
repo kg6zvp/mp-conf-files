@@ -1,4 +1,4 @@
-package es.eisig.mp_conf_files;
+package eisiges.mp_conf_files;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
